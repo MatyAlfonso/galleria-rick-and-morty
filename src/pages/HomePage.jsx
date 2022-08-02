@@ -16,7 +16,7 @@ export const HomePage = () => {
       {
         characters.map(character => {
           return (
-            <CharacterContainer id={character.id} name={character.name} image={character.image} />
+            <CharacterContainer key={character.id} id={character.id} name={character.name} image={character.image} />
           )
         })
       }
