@@ -1,27 +1,25 @@
 import { useState, useEffect } from "react";
-import {CharacterContainer} from "../components/CharacterContainer";
+import { CharacterContainer } from "../components/CharacterContainer";
 
 export const HomePage = () => {
 
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-   fetch('https://rickandmortyapi.com/api/character/')
-    .then(res => res.json())
-    .then(data => setCharacters(data.results))
+    fetch('https://rickandmortyapi.com/api/character/')
+      .then(res => res.json())
+      .then(data => setCharacters(data.results))
   }, [])
 
-  console.log(characters);
-
   return (
-    <>
+    <div className='flex gap-5 flex-wrap justify-around'>
       {
-         characters.map(character => {
+        characters.map(character => {
           return (
-            <CharacterContainer id={character.id} name={character.name} image={character.image}/>
+            <CharacterContainer id={character.id} name={character.name} image={character.image} />
           )
-        }) 
+        })
       }
-    </>
+    </div>
   )
 }
