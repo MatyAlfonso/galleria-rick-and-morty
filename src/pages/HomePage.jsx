@@ -1,11 +1,24 @@
-import { NavBar } from '../components';
+import { useState, useEffect } from "react";
+import { CharacterContainer } from "../components/CharacterContainer";
 
 export const HomePage = () => {
-  return (
-    <div>
-      <NavBar />
-      {
 
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    fetch('https://rickandmortyapi.com/api/character/')
+      .then(res => res.json())
+      .then(data => setCharacters(data.results))
+  }, [])
+
+  return (
+    <div className='flex gap-5 flex-wrap justify-around'>
+      {
+        characters.map(character => {
+          return (
+            <CharacterContainer key={character.id} id={character.id} name={character.name} image={character.image} />
+          )
+        })
       }
     </div>
   )
