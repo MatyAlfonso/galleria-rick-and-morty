@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { CardImg } from '../components/CardImg';
-import { Footer } from '../components';
+import { CharacterInfo } from '../components/CharacterInfo';
 
 export const InfoPage = () => {
 
   const [character, setCharacter] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character/1')
@@ -13,34 +14,25 @@ export const InfoPage = () => {
       })
       .then(character => {
         setCharacter(character)
+        setLoading(false)
       });
-  }, [])
+  },[])
 
   return (
     <>
-      <div className='py-12 px-8 flex bg-gray-900 m-10 rounded-lg items-start'>
+      <div className='py-12 
+                        px-8 
+                        flex 
+                        bg-gray-900 
+                        mb-10 
+                        rounded-lg 
+                        items-start 
+                        w-5/6 
+                        self-center 
+                        flex-wrap 
+                        justify-around'>
         <CardImg image={character.image} />
-        <div className='infoCharacter text-center grow mx-8'>
-          <h2>{character.name} ({character.species})</h2>
-          <ul className='text-left my-8'>
-            <li>
-              <p>Status: {character.status}</p>
-            </li>
-            <li>
-              <p>Gender: {character.gender}</p>
-            </li>
-            <li>
-              <p>Origin: character.origin.name</p>
-            </li>
-            <li>
-              {/* <ul>
-                        {character.episode.map((episode) => {
-                          return <li>{episode}</li>
-                        })}
-                      </ul> */}
-            </li>
-          </ul>
-        </div>
+        <CharacterInfo character={character}/>
       </div>
     </>
   )
