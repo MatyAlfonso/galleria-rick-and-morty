@@ -32,7 +32,7 @@ export const InfoPage = () => {
                         flex-wrap 
                         justify-around'>
         <CardImg image={character.image} />
-        <CharacterInfo character={character}/>
+        <CharacterInfo/>
       </div>
     </>
   )
