@@ -1,11 +1,12 @@
-import React from 'react'
-
-export const Pagination = ({ handleNextPage, handlePreviousPage, handlePageChange, pages }) => {
+export const Pagination = ({ handleNextPage, handlePreviousPage, handlePageChange, currentPage, pages }) => {
 
     let pageButtons = [];
 
+    let currentPageNumber = currentPage.split('=')[1];
+
     for (let i = 1; i <= pages; i++) {
-        pageButtons.push(<button className='text-lg m-0.5 hover:underline font-medium' key={i} onClick={() => handlePageChange(i)}>{i}</button>);
+        //eslint-disable-next-line
+        pageButtons.push(<button className={`m-0.5 text-xl ${currentPageNumber == i ? 'underline text-[#2baeb8]' : 'none'}`} key={i} onClick={() => handlePageChange(i)}>{i}</button>);
     }
 
     return (

@@ -63,6 +63,7 @@ export const HomePage = () => {
             handleNextPage={nextPage ? handleNextPage : null}
             handlePreviousPage={previousPage ? handlePreviousPage : null}
             handlePageChange={handlePageChange}
+            currentPage={currentPage}
             pages={pages}
           />
         </div>
