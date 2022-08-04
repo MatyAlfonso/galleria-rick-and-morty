@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
+import { ParticleBackground } from '../components';
 import { CardImg } from '../components/CardImg';
 import { CharacterInfo } from '../components/CharacterInfo';
 
 export const InfoPage = () => {
 
   const [character, setCharacter] = useState([])
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character/1')
@@ -14,12 +14,12 @@ export const InfoPage = () => {
       })
       .then(character => {
         setCharacter(character)
-        setLoading(false)
       });
   },[])
 
   return (
     <>
+      <ParticleBackground/>
       <div className='py-12 
                         px-8 
                         flex 
@@ -32,7 +32,7 @@ export const InfoPage = () => {
                         flex-wrap 
                         justify-around'>
         <CardImg image={character.image} />
-        <CharacterInfo/>
+        <CharacterInfo character={character}/>
       </div>
     </>
   )
