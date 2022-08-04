@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PortalGif } from "../components";
-import { ParticleBackground } from "../components/ParticleBackground";
+import { PortalGif, ParticleBackground } from "../components";
 
 
 export const NotFoundPage = () => {
