@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-
-import { Pagination, CharacterContainer } from "../components";
+import { Pagination, CharacterContainer, ParticleBackground } from "../components";
 
 export const HomePage = () => {
 
@@ -45,6 +44,7 @@ export const HomePage = () => {
 
   return (
     <>
+      <ParticleBackground/>
       {isLoading
         ?
         <div>Loading...</div>
