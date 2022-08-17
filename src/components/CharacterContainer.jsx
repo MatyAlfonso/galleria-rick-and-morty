@@ -1,4 +1,4 @@
-export const CharacterContainer = ({id, name, image}) => {
+export const CharacterContainer = ({ id, name, image }) => {
     return (
         <div key={id}>
             <img src={image} alt={name} />
