@@ -14,7 +14,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="info" element={<InfoPage />} />
+            <Route path="info/:id" element={<InfoPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />

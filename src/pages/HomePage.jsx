@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+
 import { Pagination, CharacterContainer } from "../components";
 
 export const HomePage = () => {
@@ -26,6 +28,7 @@ export const HomePage = () => {
     }
 
     fetchData();
+
   }, [currentPage]);
 
   const handleNextPage = () => {
@@ -50,12 +53,14 @@ export const HomePage = () => {
           {
             characters.map(character => {
               return (
-                <CharacterContainer
-                  key={character.id}
-                  id={character.id}
-                  name={character.name}
-                  image={character.image}
-                />
+                <Link to={`/info/${character.id}`}>
+                  <CharacterContainer
+                    key={character.id}
+                    id={character.id}
+                    name={character.name}
+                    image={character.image}
+                  />
+                </Link>
               )
             })
           }
