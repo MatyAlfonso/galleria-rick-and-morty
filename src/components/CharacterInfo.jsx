@@ -12,14 +12,16 @@ export const CharacterInfo = ({character}) => {
                     <p className='text-white text-2xl'>Gender: {character.gender}</p>
                 </li>
                 <li>
-                    <p className='text-white text-2xl'>Origin: character.origin.name</p>
+                    <p className='text-white text-2xl'>Origin: {character.origin.name}</p>
                 </li>
                 <li>
-                    {/* <ul>
+                    {
+                        <ul>
                             {character.episode.map((episode) => {
                                 return <li>{episode}</li>
                             })}
-                        </ul> */}
+                        </ul> 
+                    }
                 </li>
             </ul>
         </div>
