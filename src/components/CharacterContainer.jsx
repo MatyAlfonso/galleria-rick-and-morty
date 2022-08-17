@@ -1,4 +1,4 @@
-export const CharacterContainer = ({id, name, image}) => {
+export const CharacterContainer = ({ id, name, image }) => {
     return (
         <div className="bg-[#2baeb8]/25 p-2 rounded-lg" key={id}>
             <img src={image} alt={name} className='rounded-lg'/>

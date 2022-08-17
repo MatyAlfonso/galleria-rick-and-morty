@@ -1,7 +1,5 @@
-import React from 'react'
-
-export const CardImg = ({image}) => {
+export const CardImg = ({image, name}) => {
   return (
-    <img src={image} className='rounded-lg'/>
+    <img src={image} alt={name} className='rounded-lg'/>
   )
 }
