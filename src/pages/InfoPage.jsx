@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 import { ParticleBackground } from '../components';
 import { CardImg } from '../components/CardImg';
 import { CharacterInfo } from '../components/CharacterInfo';
