@@ -15,13 +15,11 @@ export const CharacterInfo = ({character}) => {
                     <p className='text-white text-2xl'>Origin: {character.origin.name}</p>
                 </li>
                 <li>
-                    {
                         <ul>
                             {character.episode.map((episode) => {
                                 return <li>{episode}</li>
                             })}
                         </ul> 
-                    }
                 </li>
             </ul>
         </div>
