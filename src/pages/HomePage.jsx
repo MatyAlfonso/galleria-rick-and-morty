@@ -1,77 +1,67 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from 'react-router-dom';
-import { Pagination, CharacterContainer, ParticleBackground } from "../components";
+import { SearchContext } from "../context/SearchContext";
+import { Pagination, CharacterContainer, ParticleBackground, PortalGif } from "../components";
 
 export const HomePage = () => {
 
-  const [characters, setCharacters] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState('https://rickandmortyapi.com/api/character/');
-  const [nextPage, setNextPage] = useState();
-  const [previousPage, setPreviousPage] = useState();
-  const [pages, setPages] = useState();
-
-  useEffect(() => {
-    const url = currentPage;
-
-    setIsLoading(true);
-
-    const fetchData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      setCharacters(data.results);
-      setIsLoading(false);
-      setNextPage(data.info.next);
-      setPreviousPage(data.info.prev);
-      setPages(data.info.pages);
-    }
-
-    fetchData();
-
-  }, [currentPage]);
-
-  const handleNextPage = () => {
-    setCurrentPage(nextPage);
-  }
-
-  const handlePreviousPage = () => {
-    setCurrentPage(previousPage);
-  }
-
-  const handlePageChange = (page) => {
-    setCurrentPage(`https://rickandmortyapi.com/api/character/?page=${page}`);
-  }
+  const {
+    characters,
+    isLoading,
+    currentPage,
+    nextPage,
+    previousPage,
+    pages,
+    handleNextPage,
+    handlePreviousPage,
+    handlePageChange
+  } = useContext(SearchContext);
 
   return (
     <>
-      <ParticleBackground/>
-      {isLoading
-        ?
-        <div>Loading...</div>
-        :
-        <div className='flex gap-5 flex-wrap justify-around'>
-          {
-            characters.map(character => {
-              return (
-                <Link to={`/info/${character.id}`}>
-                  <CharacterContainer
-                    key={character.id}
-                    id={character.id}
-                    name={character.name}
-                    image={character.image}
-                  />
-                </Link>
-              )
-            })
-          }
-          <Pagination
-            handleNextPage={nextPage ? handleNextPage : null}
-            handlePreviousPage={previousPage ? handlePreviousPage : null}
-            handlePageChange={handlePageChange}
-            currentPage={currentPage}
-            pages={pages}
-          />
-        </div>
+      <ParticleBackground />
+      {
+        isLoading
+          ? (
+            <PortalGif width={'300px'} height={'auto'} />
+          ) : (<>
+            <div className='grid grid-cols-5 gap-3'>
+              {
+                characters?.map(character => {
+                  return (
+                    <Link to={`/info/${character.id}`} key={character.id}>
+                      <CharacterContainer
+                        id={character.id}
+                        name={character.name}
+                        image={character.image}
+                      />
+                    </Link>
+                  )
+                })
+              }
+            </div>
+            <div className='m-auto'>
+              {
+                characters === undefined || characters.length === 0
+                  ? (
+                    <>
+                    <h2 className='text-white text-5xl text-center'>No character found in this dimension! </h2>
+                    <p className='text-white text-3xl text-center mt-4'>Try with another name...</p>
+                    </>
+                  )
+                  : (
+                    <Pagination
+                      handleNextPage={nextPage ? handleNextPage : null}
+                      handlePreviousPage={previousPage ? handlePreviousPage : null}
+                      handlePageChange={handlePageChange}
+                      currentPage={currentPage}
+                      pages={pages}
+                    />
+                  )
+              }
+            </div>
+          </>
+          )
       }
     </>
   )
