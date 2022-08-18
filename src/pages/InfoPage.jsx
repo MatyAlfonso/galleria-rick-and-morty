@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ParticleBackground } from '../components';
-import { CardImg } from '../components/CardImg';
 import { CharacterInfo } from '../components/CharacterInfo';
 
 export const InfoPage = () => {
@@ -20,19 +19,15 @@ export const InfoPage = () => {
 
   return (
     <>
-      <ParticleBackground/>
-      {loading 
-        ? 
-        <h1>Loading...</h1> 
+      <ParticleBackground />
+      {loading
+        ?
+        <h1>Loading...</h1>
         :
-        <>
-          <div className='py-12 px-8 flex bg-[#2baeb8]/25 mb-10 rounded-lg items-start w-5/6 self-center flex-wrap justify-around'>
-          <CardImg image={character.image} name={character.name} />
-          <CharacterInfo character={character}/>
-          </div>
-        </>
+        <div className='py-12 px-8 flex bg-[#2baeb8]/25 mb-10 rounded-lg w-3/5 self-center justify-around flex-col items-center'>
+          <CharacterInfo character={character} />
+        </div>
       }
     </>
   )
 }
-
