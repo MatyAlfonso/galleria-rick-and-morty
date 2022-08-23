@@ -9,19 +9,19 @@ export const CharacterInfo = ({ character }) => {
             <CardImg image={character.image} name={character.name} />
             <ul className='my-8'>
                 <li>
-                    <p className='text-white text-2xl'>Status: {character.status}</p>
+                    <p className='text-white text-2xl'><b>Status:</b> {character.status}</p>
                 </li>
                 <li>
-                    <p className='text-white text-2xl'>Species: {character.species}</p>
+                    <p className='text-white text-2xl'><b>Species:</b> {character.species}</p>
                 </li>
                 <li>
-                    <p className='text-white text-2xl'>Gender: {character.gender}</p>
+                    <p className='text-white text-2xl'><b>Gender:</b> {character.gender}</p>
                 </li>
                 <li>
-                    <p className='text-white text-2xl'>Origin: {character.origin.name}</p>
+                    <p className='text-white text-2xl'><b>Origin:</b> {character.origin.name}</p>
                 </li>
                 <li>
-                    <p className='text-white text-2xl'>Location: {character.location.name}</p>
+                    <p className='text-white text-2xl'><b>Location:</b> {character.location.name}</p>
                 </li>
             </ul>
         </div>
