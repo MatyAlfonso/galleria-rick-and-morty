@@ -19,7 +19,7 @@ export const SearchBar = () => {
 
     return (
         <form
-            className="flex items-center m-10"
+            className="flex items-center p-4 md:p-0 md:m-10 w-full xl:w-1/2 2xl:w-1/2 2xl:m-auto 2xl:block"
             onSubmit={(e) => handleSearchBarSubmit(e)}
         >
             <div className="flex space-x-1">
