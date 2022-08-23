@@ -1,1 +1,0 @@
-Probando que GIT esté funcionando bien.

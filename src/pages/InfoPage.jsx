@@ -24,7 +24,7 @@ export const InfoPage = () => {
         ?
         <h1>Loading...</h1>
         :
-        <div className='py-12 px-8 flex bg-[#2baeb8]/25 mb-10 rounded-lg w-3/5 self-center justify-around flex-col items-center'>
+        <div className='w-11/12 md:w-3/4 xl:w-1/2 my-auto mx-2 py-12 px-8 flex bg-[#2baeb8]/25 rounded-lg self-center justify-around flex-col items-center'>
           <CharacterInfo character={character} />
         </div>
       }
