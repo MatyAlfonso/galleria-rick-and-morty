@@ -6,7 +6,7 @@ export const Pagination = ({ handleNextPage, handlePreviousPage, handlePageChang
 
     for (let i = 1; i <= pages; i++) {
         //eslint-disable-next-line
-        pageButtons.push(<button className={`m-0.5 text-xl text-white ${currentPageNumber == i ? 'underline text-[#2baeb8]' : 'none'}`} key={i} onClick={() => handlePageChange(i)}>{i}</button>);
+        pageButtons.push(<button className={`m-0.5 text-xl bg-[#2baeb8] rounded-full p-2 text-white ${currentPageNumber == i ? 'bg-white text-[#2baeb8]' : 'none'}`} key={i} onClick={() => handlePageChange(i)}>{i}</button>);
     }
 
     return (
